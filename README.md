@@ -2,8 +2,9 @@
 
 Easy to use docker image for creating a self-hosted Azure Pipeline Linux agent.
 
-Created on February 2021
+Changelog
 - Updated version March 19
+- Created on February 2021
 
 ```console
 docker run -e ORGANIZATION=myorganization 
