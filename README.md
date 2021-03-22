@@ -9,6 +9,9 @@ Changelog
   - added --replace to override any existing agent with same name
   - added Azure CLI
   - added Powershell 7.1.3
+  - changed base image from debian to ubuntu
+  - added logging output
+  - used some code from official MS documentation about running self-hosted Linux agents in docker
 - March 19: Update
 - February 2021: Created
 
