@@ -21,6 +21,10 @@ RUN apt-get update && \
         zip \
         unzip
 
+RUN "https://go.microsoft.com/fwlink/?linkid=2143497" -O sqlpackage.zip && \
+    unzip sqlpackage.zip && \
+    chmod a+x sqlpackage
+
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 RUN wget https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/powershell_7.1.3-1.debian.11_amd64.deb
 RUN apt-get install -f -y ./powershell_7.1.3-1.debian.11_amd64.deb
