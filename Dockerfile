@@ -1,5 +1,11 @@
 FROM debian
-RUN apt-get update && apt-get upgrade -y && apt install wget -y && apt install sudo -y
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt install wget -y && \
+    apt install sudo -y && \
+    apt install git -y
+
 RUN adduser --disabled-password --gecos '' docker
 RUN adduser docker sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
