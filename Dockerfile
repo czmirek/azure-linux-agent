@@ -21,14 +21,26 @@ RUN apt-get update && \
         zip \
         unzip
 
-RUN "https://go.microsoft.com/fwlink/?linkid=2143497" -O sqlpackage.zip && \
-    unzip sqlpackage.zip && \
-    chmod a+x sqlpackage
+RUN mkdir sqlpackage
+WORKDIR /sqlpackage
+RUN wget "https://go.microsoft.com/fwlink/?linkid=2143497" -O sqlpackage.zip
+RUN unzip sqlpackage.zip && \
+    chmod a+x /sqlpackage/sqlpackage
 
+ENV PATH "$PATH:/sqlpackage"
+
+WORKDIR /
+RUN mkdir azcli
+WORKDIR /azcli
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+WORKDIR /
+RUN mkdir pwsh
+WORKDIR /pwsh
 RUN wget https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/powershell_7.1.3-1.debian.11_amd64.deb
 RUN apt-get install -f -y ./powershell_7.1.3-1.debian.11_amd64.deb
 
+WORKDIR /
 RUN adduser --disabled-password --gecos '' docker
 RUN adduser docker sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers

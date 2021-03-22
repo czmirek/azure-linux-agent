@@ -5,12 +5,13 @@ Easy to use docker image for creating a self-hosted Azure Pipeline Linux agent.
 Changelog
 
 - March 22:
+  - reworked the dockerfile structure
   - added git to the agent
   - added --replace to override any existing agent with same name
   - added Azure CLI
   - added Powershell 7.1.3
   - added sqlpackage
-  - changed base image from debian to ubuntu
+  - changed base image from debian to ubuntu 18.04
   - added logging output
   - used some code from official MS documentation about running self-hosted Linux agents in docker
 - March 19: Update
