@@ -6,6 +6,10 @@ RUN apt-get update && \
     apt install sudo -y && \
     apt install git -y
 
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+RUN wget https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/powershell_7.1.3-1.debian.11_amd64.deb
+RUN apt-get install -f -y ./powershell_7.1.3-1.debian.11_amd64.deb
+
 RUN adduser --disabled-password --gecos '' docker
 RUN adduser docker sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
