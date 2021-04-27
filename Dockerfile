@@ -48,8 +48,8 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER docker
 WORKDIR /home/docker
 
-RUN wget https://vstsagentpackage.azureedge.net/agent/2.183.1/vsts-agent-linux-x64-2.183.1.tar.gz
-RUN tar -xf vsts-agent-linux-x64-2.183.1.tar.gz
+RUN wget https://vstsagentpackage.azureedge.net/agent/2.185.1/vsts-agent-linux-x64-2.185.1.tar.gz
+RUN tar -xf vsts-agent-linux-x64-2.185.1.tar.gz
 RUN sudo ./bin/installdependencies.sh
 
 RUN echo "#!/bin/bash" > entrypoint.sh
